@@ -13,8 +13,8 @@
                                 <input type="email" class="form-control" placeholder="Email" formControlName="correo">
                                 <div class="input-group-append ">
                                     <span class="input-group-text ">
-                                    <!-- <i class="fa fa-check-circle "></i> -->
-                                        <img *ngIf="loginForm.get('correo').valid " src="\assets\images\img-faest\check.png " alt=" " width="20px " height="20px ">
+                                        <i *ngIf="loginForm.get('correo').invalid" class="fa fa-check-circle "></i>
+                                        <img *ngIf="loginForm.get('correo').valid" src="\assets\images\img-faest\check.png" alt=" " width="20px" height="20px">
                                     </span>
                                 </div>
                             </div>
@@ -23,10 +23,10 @@
                         <div class="form-group">
                             <label class="label">Contraseña</label>
                             <div class="input-group">
-                                <input type="password" class="form-control" placeholder="*********" formControlName="password">
+                                <input type="password" class="form-control" placeholder="*********" formControlName="password" maxlength="15">
                                 <div class="input-group-append">
                                     <span class="input-group-text">
-                                        <!-- <i class="fa fa-check-circle "></i> -->
+                                        <i *ngIf="loginForm.get('password').invalid" class="fa fa-check-circle "></i>
                                         <img *ngIf="loginForm.get('password').valid" src="\assets\images\img-faest\check.png" alt="" width="20px" height="20px">
                                     </span>
                                 </div>
@@ -34,7 +34,10 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary submit-btn btn-block" [disabled]="loginForm.invalid">Login</button>
+                            <button type="submit" class="btn btn-primary submit-btn btn-block" [disabled]="loginForm.invalid" *ngIf="!cargando">Login</button>
+                            <button type="button" class="btn btn-primary submit-btn btn-block" [disabled]="true" *ngIf="cargando">
+                                <i class="fa fa-spin fa-sync"></i>
+                                Espere...</button>
                         </div>
 
                         <div class="text-block text-center my-3">

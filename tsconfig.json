@@ -17,6 +17,7 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "noImplicitAny": false, // Para el error en la desestructuración de Usuario
     "target": "es2017",
     "module": "es2020",
     "lib": [
@@ -30,6 +31,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": false,
     "strictPropertyInitialization": false
-    //"skipLibCheck": true,
   }
 }
