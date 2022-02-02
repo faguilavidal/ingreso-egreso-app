@@ -29,7 +29,8 @@ export class IngresoEgresoComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
 
-    this.loadingSubs = this.store.select('ui').subscribe( ui => this.cargando = ui.isLoading );
+    this.loadingSubs = this.store.select('ui')
+    .subscribe( ui => this.cargando = ui.isLoading );
     // this.store.select('ui').subscribe( {isLoading} => this.cargando = isLoading ); Otra Opción
 
     this.ieForm = this.fb.group({

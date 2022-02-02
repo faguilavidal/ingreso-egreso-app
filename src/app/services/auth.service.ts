@@ -41,7 +41,7 @@ export class AuthService {
       } else {
         // no existe
         this._user = null;
-        this.userSubs.unsubscribe();
+        this.userSubs?.unsubscribe();
         this.store.dispatch(unSetuser());
         this.store.dispatch(unSetItems());
       }

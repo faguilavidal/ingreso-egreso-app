@@ -36,7 +36,6 @@ export class RegisterComponent implements OnInit {
 
     this.uiSubs =this.store.select('ui').subscribe( ui => {
       this.cargando = ui.isLoading;
-      console.log('Cargando subs register');
     });
 
   }
@@ -49,13 +48,6 @@ export class RegisterComponent implements OnInit {
     if (this.registroForm.invalid) {return;}
 
     this.store.dispatch(isLoading());
-
-    // Swal.fire({
-    //   title: 'Registrando usuario',
-    //   didOpen: () => {
-    //     Swal.showLoading()
-    //   }
-    // });
 
     const {usuario, correo, password} = this.registroForm.value;
 
